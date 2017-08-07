@@ -16,6 +16,11 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'geocoder'
+gem "coffee-rails"
+gem "gmaps4rails"
+gem 'devise'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -24,4 +29,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
 end

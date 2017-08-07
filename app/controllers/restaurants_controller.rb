@@ -1,10 +1,23 @@
 class RestaurantsController < ApplicationController
-  RESTAURANTS = [
-    { name: "Dishoom", address: "Shoreditch, London", category: "indian" },
-    { name: "Sushi Samba", address: "City, London", category: "japanese" }
-  ]
   def index
-    @category = params[:food_type]
-    @restaurants = RESTAURANTS.select {|r| r[:category] == @category }
+    @restaurants = Restaurant.all
+    if params[:city].nil?
+        @restaurants = Event.where.not(latitude: nil, longitude: nil)
+      else
+        @city = params[:city]
+        @restaurants = Restaurant.select {|r| r[:city] == @city }
+    end
+
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      # marker.infowindow render_to_string(partial: "/restaurants/map_box", locals: { restaurant: restaurant })
+    end
+  end
+
+  def show
+    # @restaurant = RESTAURANTS[params[:id].to_i]
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant_coordinates = { lat: @restaurant.latitude, lng: @restaurant.longitude }
   end
 end

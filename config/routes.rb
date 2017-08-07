@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'restaurants', to: 'restaurants#index'
 
+  get 'restaurants/:id', to: 'restaurants#show'
+
   get 'contact', to: 'pages#contact'
 
   get 'about', to: 'pages#about'
