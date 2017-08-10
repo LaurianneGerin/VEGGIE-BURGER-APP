@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'restaurants', to: 'restaurants#index'
-
-  get 'restaurants/:id', to: 'restaurants#show'
+  resources :restaurants, only: [:index, :show]
 
   get 'contact', to: 'pages#contact'
 

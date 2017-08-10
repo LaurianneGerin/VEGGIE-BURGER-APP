@@ -20,6 +20,7 @@ gem 'geocoder'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'devise'
+gem 'slim'
 
 group :development, :test do
   gem 'better_errors'
