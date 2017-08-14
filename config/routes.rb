@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :restaurants, only: [:index, :show]
 
   get 'contact', to: 'pages#contact'
