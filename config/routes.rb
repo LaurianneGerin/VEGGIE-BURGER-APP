@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'restaurants', to: 'restaurants#index'
-
-  get 'restaurants/:id', to: 'restaurants#show'
+  ActiveAdmin.routes(self)
+  devise_for :users
+  resources :restaurants, only: [:index, :show]
 
   get 'contact', to: 'pages#contact'
 

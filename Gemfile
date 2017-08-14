@@ -20,6 +20,10 @@ gem 'geocoder'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'devise'
+gem 'slim'
+
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
   gem 'better_errors'
