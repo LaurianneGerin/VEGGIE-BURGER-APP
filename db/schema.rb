@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814114608) do
+ActiveRecord::Schema.define(version: 20170822161316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20170814114608) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "burgers", force: :cascade do |t|
+    t.string "bun"
+    t.string "steak"
+    t.string "cheese"
+    t.string "sauce"
+    t.string "garnish"
+    t.string "side"
+    t.string "summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "restaurant_id"
+    t.string "name"
+    t.index ["restaurant_id"], name: "index_burgers_on_restaurant_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.integer "stars"
@@ -38,6 +53,12 @@ ActiveRecord::Schema.define(version: 20170814114608) do
     t.string "city"
     t.float "latitude"
     t.float "longitude"
+    t.string "hours"
+    t.string "phone"
+    t.string "website"
+    t.string "price_range"
+    t.string "num_burgers"
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

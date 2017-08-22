@@ -13,7 +13,7 @@ ActiveAdmin.register Restaurant do
 # end
 
 
-permit_params :name, :stars, :address, :city
+permit_params :name, :stars, :address, :city, :hours, :phone, :website, :price_range, :num_burgers, :description
 
 index do
   selectable_column
@@ -22,6 +22,12 @@ index do
   column :name
   column :address
   column :city
+  column :hours
+  column :phone
+  column :website
+  column :price_range
+  column :num_burgers
+  column :description
   actions
 end
 
