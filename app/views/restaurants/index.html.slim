@@ -5,6 +5,9 @@ p Find me in app/views/restaurants/index.slim
   p No results
 - else
   - @restaurants.each do |restaurant|
+    - image_prefix = "features/#{locale}/#{section}/#{feature}"
+    - if asset_exists?("#{image_prefix}.png")
+      = image_set_tag "#{image_prefix}.png", class: 'home-page-picture'
     ul
       li #{restaurant.name} (#{restaurant.address}), #{restaurant.city}
     = link_to restaurant.name, restaurant_path(restaurant)
