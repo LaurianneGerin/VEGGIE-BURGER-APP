@@ -1,0 +1,17 @@
+<h1>
+  Page Home
+</h1>
+<p>
+  Find me in app/views/pages/home.html.erb
+</p>
+<form action="/restaurants" method="get">
+  <input type="text" name="city" placeholder="Which city ?">
+  <input type="submit">
+</form>
+<% @sample.each do |restaurant| %
+  <% image_prefix = "features/#{locale}/#{section}/#{feature}" %>
+<% if asset_exists?("#{image_prefix}.png") %>
+<%= image_set_tag "#{image_prefix}.png", class: 'home-page-picture' %>
+<ul>
+  <li>#{restaurant.name} (#{restaurant.address}), #{restaurant.city}</li>
+</ul>
